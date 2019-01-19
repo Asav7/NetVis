@@ -6,13 +6,49 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-	<link rel="stylesheet" href="./vis.css">
+	<!-- vis.css because it is easier to change box sizing and edit icon looks better -->
+	<link rel="stylesheet" href="./style/vis.css"> 
 
-	<link rel="stylesheet" href="./override.css">
+	<!-- css for overriding some vis.css and bootstrap styles -->
+	<link rel="stylesheet" href="./style/override.css">
+
+	<link rel="stylesheet" type="text/css" href="./style/style.css">
 
 </head>
 <body>
 	<div class="wrapper">
+		<div id="new-node-modal">
+			<div id="new-node-popup">
+				<h3>Add node</h3>
+				<form>
+					<div class="new-node-popup-line">
+						<label>X Position: </label>
+						<input type="text" id="x-pos">
+					</div>
+					<div class="new-node-popup-line">
+						<label>Y Position: </label>
+						<input type="text" id="y-pos">
+					</div>
+					<div class="new-node-popup-line">
+						<label>Shape: </label>
+						<input type="text" name="shape" id="add-node-shape">
+					</div>
+					<div class="new-node-popup-line">
+						<label>Group: </label>
+						<input type="text">
+					</div>
+					<div class="new-node-popup-line">
+						<label>Label: </label>
+						<input type="text" id="input-label">
+					</div>
+					<div class="button-line new-node-popup-line">
+						<button id="save-node-adding-button">Save</button>
+						<button id="cancel-node-adding-button">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			  <a class="navbar-brand" href="#">Navbar</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,23 +65,20 @@
 		</nav>
 		<main>
 			<h1>Starts Here</h1>
-			<div class="container">
-<!-- 				<div id="network-popUp">
-				  <span id="operation">node</span> <br>
-				  <table style="margin:auto;"><tr>
-				    <td>id</td><td><input id="node-id" value="new value" /></td>
-				  </tr>
-				    <tr>
-				      <td>label</td><td><input id="node-label" value="new value" /></td>
-				    </tr></table>
-				  <input type="button" value="save" id="saveButton" />
-				  <input type="button" value="cancel" id="cancelButton" />
-				</div>
-				<br /> -->
+			<div class="containerNet">
 				<div id="mynetwork"></div>
 			</div>
+			<textarea id="json-text-area"></textarea>
+			<div id="json-buttons">
+				<button id="generate-json">Generate Json</button>
+				<button id="generate-net-from-json">Generate Net</button>
+				<button id="download-json">Downolad Json</button>
+				<button id="upload-json">Upload Json</button>
+			</div>
 		</main>
+
 		<footer>
+			<button id="also-edit-mode">Edit mode</button>
 			
 		</footer>
 
@@ -56,13 +89,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="./vis.min.js"></script>
+<script type="text/javascript" src="./js/vis.min.js" id="vis-script"></script>
 
+<script type="text/javascript" src="./js/network.js"></script>
 
-<script type="text/javascript" src="./network.js"></script>
+<script type="text/javascript" src="./js/vis-extension.js"></script>
 
-
-
+<script type="text/javascript" src="./js/savable.js"></script>
 
 
 </body>
