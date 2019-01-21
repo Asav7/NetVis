@@ -1,5 +1,5 @@
 var nodes = new vis.DataSet([
-    {id: 1, label: 'Node 1'},
+    {id: 1, label: 'Node 1', x: 0, y: 0, shape: "dot"},
     {id: 2, label: 'Node 2'},
     {id: 3, label: 'Node 3'},
     {id: 4, label: 'Node 4'},
@@ -51,23 +51,48 @@ var options = {
 
 };
 
-// TODO: implement editNode function
+
+addNodeModal = document.getElementById("new-node-modal");
+
+
+// TODO: this has very limited functionality (edits only lablel); save button functionality is defined elsewere
 function editNode(data, callback) {
-    console.log(data);
-    console.log(callback)
+    // TODO Change
+    addNodeModal.style.display = "block";
+
+    document.getElementById("save-node-adding-button").onclick = saveEditedNode.bind(this, data, callback);
 }
+
+function saveEditedNode(data, callback) {
+
+    // get user's node shape
+    newNodeShape = document.getElementById("add-node-shape").value; 
+    data.shape = newNodeShape;
+
+    // get user's node label
+    newNodeLabel = document.getElementById("input-label").value; 
+    data.label = newNodeLabel;
+
+    // callback that creates node with changed data
+    callback(data);
+    addNodeModal.style.display = "none";
+}
+
+
+
 
 // Function for adding nodes (given to network.options.manipulation.addNode)
 function addNode(data, callback) {
     console.log("inside")
-    addNodeModal = document.getElementById("new-node-modal");
+    
     addNodeModal.style.display = "block";
     document.getElementById("x-pos").value = data.x;
     document.getElementById("y-pos").value = data.y;
     document.getElementById("save-node-adding-button").onclick = saveAddNode.bind(this, data, callback);
 }
 
-
+// TODO: this has to be bind to edit button functinality and add node functionality, because it does not restore edit node mode
+// toolbox to standard state
 // Cancel event for cancel button in add node popup 
 cancelAddNodeButton = document.getElementById("cancel-node-adding-button")
 cancelAddNodeButton.addEventListener("click", cancelAddNode)
