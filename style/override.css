@@ -2,26 +2,7 @@
   height: 100%;
 }
 */
-main {
-	margin: 20px 50px;
-  padding: 0px 20px;
-}
 
-.container {
-	border: 1px solid grey;
-	min-width: 200px;
-	height: 400px;
-	padding: 20px;
-  width: 100%;
-  margin: 0;
-}
-
-#mynetwork {
-    /*width: 1600px;*/
-    height: 100%;
-    /*min-height: 100%;*/
-    border: 1px solid lightgray;
-}
 
 
 /*asdfasdfasdf*/
