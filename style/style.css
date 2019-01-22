@@ -20,15 +20,20 @@ main {
     border: 1px solid lightgray;
 }
 
-
+#json-text-area-edges,
 #json-text-area {
-	display: block;
+	display: inline-block;
 	border: 1px solid grey;
 	min-width: 200px;
-	width: 100%;
+	width: 49%;
 	margin: 20px auto;
 	height: 200px;
 }
+
+#json-text-area-edges {
+	float: right;
+}
+
 
 #new-node-modal {
 	display: none;

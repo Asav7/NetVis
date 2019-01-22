@@ -1,6 +1,10 @@
 
-var network;
-var nodes = new vis.DataSet([
+let network;
+let nodes;
+let edges;
+
+// define some nodes for testing
+nodes = new vis.DataSet([
     {id: 1, label: 'Node 1', x: 0, y: 0, shape: "dot", group: "dog", title: "etwas"},
     {id: 2, label: 'Node 2'},
     {id: 3, label: 'Node 3'},
@@ -8,23 +12,25 @@ var nodes = new vis.DataSet([
     {id: "doge", label: 'Node 5'}
 ]);
 
-// create an array with edges
-var edges = new vis.DataSet([
+// define some edges for testing
+edges = new vis.DataSet([
     {from: 1, to: 3},
     {from: 1, to: 2},
     {from: 2, to: 4},
     {from: 2, to: "doge"},
 ]);
 
-// create a network
-var container = document.getElementById('mynetwork');
+// localize containter for network
+let container = document.getElementById('mynetwork');
 
 // provide the data in the vis format
-var data = {
+let data = {
     nodes: nodes,
     edges: edges
 };
-var options = {
+
+// set options
+let options = {
 
     manipulation: {
         enabled: true,
@@ -39,22 +45,22 @@ var options = {
 
 };
 
+const addNodeModal = document.getElementById("new-node-modal");
 
-addNodeModal = document.getElementById("new-node-modal");
 
-
-// TODO: this has very limited functionality (edits only lablel); save button functionality is defined elsewere
+// TODO: this has very limited functionality (edits only label); save button functionality is defined elsewere
 function editNode(data, callback) {
     // TODO Change
     addNodeModal.style.display = "block";
 
     document.getElementById("save-node-adding-button").onclick = saveEditedNode.bind(this, data, callback);
+    cancelAddNodeButton.onclick = cancelAddNode.bind(this, data, callback)
 }
 
 function saveEditedNode(data, callback) {
 
     // get user's node shape
-    newNodeShape = document.getElementById("add-node-shape").value; 
+    const newNodeShape = document.getElementById("add-node-shape").value; 
     data.shape = newNodeShape;
 
     // get user's node label
@@ -67,6 +73,8 @@ function saveEditedNode(data, callback) {
     // callback that creates node with changed data
     callback(data);
     addNodeModal.style.display = "none";
+
+    
 }
 
 
@@ -86,9 +94,9 @@ function addNode(data, callback) {
 // toolbox to standard state
 // Cancel event for cancel button in add node popup 
 cancelAddNodeButton = document.getElementById("cancel-node-adding-button")
-cancelAddNodeButton.addEventListener("click", cancelAddNode)
-function cancelAddNode(e) {
-    e.preventDefault()
+cancelAddNodeButton.addEventListener("click", (e) => {e.preventDefault()})
+function cancelAddNode(data, callback) {
+    callback(null);
     addNodeModal.style.display = "none";
 }
 
