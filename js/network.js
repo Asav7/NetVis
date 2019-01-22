@@ -1,9 +1,11 @@
+
+var network;
 var nodes = new vis.DataSet([
-    {id: 1, label: 'Node 1', x: 0, y: 0, shape: "dot"},
+    {id: 1, label: 'Node 1', x: 0, y: 0, shape: "dot", group: "dog", title: "etwas"},
     {id: 2, label: 'Node 2'},
     {id: 3, label: 'Node 3'},
     {id: 4, label: 'Node 4'},
-    {id: 5, label: 'Node 5'}
+    {id: "doge", label: 'Node 5'}
 ]);
 
 // create an array with edges
@@ -11,7 +13,7 @@ var edges = new vis.DataSet([
     {from: 1, to: 3},
     {from: 1, to: 2},
     {from: 2, to: 4},
-    {from: 2, to: 5}
+    {from: 2, to: "doge"},
 ]);
 
 // create a network
@@ -26,20 +28,6 @@ var options = {
 
     manipulation: {
         enabled: true,
-        controlNodeStyle: {
-            shape:'square',
-            size:6,
-            color: {
-                background: '#ff0000',
-                border: '#3c3c3c',
-                highlight: {
-                    background: '#07f968',
-                    border: '#3c3c3c'
-                }
-            },
-            borderWidth: 2,
-            borderWidthSelected: 2
-        },
         editNode: editNode,
         addNode: addNode,
     },
@@ -72,6 +60,9 @@ function saveEditedNode(data, callback) {
     // get user's node label
     newNodeLabel = document.getElementById("input-label").value; 
     data.label = newNodeLabel;
+
+    // get user's node group
+    data.group = document.getElementById("group-input").value;
 
     // callback that creates node with changed data
     callback(data);
@@ -112,6 +103,9 @@ function saveAddNode(data, callback) {
     newNodeShape = document.getElementById("add-node-shape").value; 
     data.shape = newNodeShape;
 
+    // get user's group
+    data.group = document.getElementById("group-input").value;
+
     // callback that creates node with changed data
     callback(data);
     addNodeModal.style.display = "none";
@@ -122,6 +116,13 @@ function saveAddNode(data, callback) {
 
 
 
-// initialize your network!
-var network = new vis.Network(container, data, options);
 
+
+
+// initialize your network!
+
+function draw() {
+    network = new vis.Network(container, data, options);
+}
+
+// draw()
