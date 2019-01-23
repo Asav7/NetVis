@@ -2,6 +2,7 @@
 var exportArea;
 var importButton;
 var exportButton;
+var downloadButton;
 
 draw()
 
@@ -12,11 +13,7 @@ function init() {
     exportAreaEdges = document.getElementById('json-text-area-edges');
     exportButton = document.getElementById('generate-json');
     importButton = document.getElementById('generate-net-from-json');
-}
-
-function addConnections(elem, index) {
-    // need to replace this with a tree of the network, then get child direct children of the element
-    elem.connections = network.getConnectedNodes(index);
+    downloadButton = document.getElementById('download-json');
 }
 
 
@@ -59,7 +56,6 @@ function exportNetwork() {
 
 }
 
-
 function writeDownNetwork(e) {
 	e.preventDefault;
 	exportNetwork();
@@ -71,12 +67,10 @@ function writeDownNetwork(e) {
 function generateNetwork(e) {
 	e.preventDefault();
 	network.destroy();
-	var newNetNodes = JSON.parse(exportArea.value)
-	console.log(newNetNodes)
+	let newNetNodes = JSON.parse(exportArea.value)
 	data.nodes = new vis.DataSet(newNetNodes);
 
-	// TODO: take data from exportArea not from variable directly
-	var newEdges = JSON.parse(exportAreaEdges.value)
+	let newEdges = JSON.parse(exportAreaEdges.value)
 	data.edges = new vis.DataSet(newEdges);
 	draw();
 }
@@ -86,9 +80,58 @@ exportButton.addEventListener("click", writeDownNetwork)
 importButton.addEventListener("click", generateNetwork)
 
 
-//
+// Download Network to JSON file
+function downloadNetwork(e) {
+	e.preventDefault();
+	exportNetwork();
+	// Create JSON with nodes and edges
+	var data = JSON.stringify({nodes: nodesData, edges: edgesData});
+	download("file.json", data);
+}
+
+downloadButton.addEventListener("click", downloadNetwork);
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
+
+// Upload Network from file
+function generateNetworkFromFile(e) {
+	e.preventDefault();
+	if (network) {network.destroy()};
+	let newNetNodes = JSON.parse(exportArea.value)
+	data.nodes = new vis.DataSet(newNetNodes);
+
+	let newEdges = JSON.parse(exportAreaEdges.value)
+	data.edges = new vis.DataSet(newEdges);
+	draw();
+}
+
+uploadButton = document.getElementById("import-json")
 
 
-
-
-
+uploadButton.onclick = function(e) {
+	e.preventDefault();
+	var files = document.getElementById('selectFile').files;
+  if (files.length <= 0) {
+    return false;
+  }
+  
+  var fr = new FileReader();
+  
+  fr.onload = function(e) { 
+    var result = JSON.parse(e.target.result);
+    var formatted = JSON.stringify(result, null, 2);
+  	data.nodes = result.nodes;
+  	data.edges = result.edges;
+  	draw();
+  }
+  
+  fr.readAsText(files.item(0));
+};
