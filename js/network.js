@@ -110,3 +110,5 @@ function cancelAddNode(data, callback) {
 function draw() {
     network = new vis.Network(container, data, options);
 }
+
+draw();
