@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 	<!-- vis.css because it is easier to change box sizing and edit icon looks better -->
-	<link rel="stylesheet" href="./style/vis.css"> 
+	<link rel="stylesheet" href="./style/vis1.css"> 
 
 	<!-- css for overriding some vis.css and bootstrap styles -->
 	<link rel="stylesheet" href="./style/override.css">
@@ -37,6 +37,10 @@
 						<label>Shape: </label>
 						<input type="text" id="input-nodeShape">
 					</div>
+					<div class="new-node-popup-line">
+						<label>Importance: </label>
+						<input type="text" id="input-nodeSize">
+					</div>
 					<div class="button-line new-node-popup-line">
 						<button id="save-node-adding-button">Save</button>
 						<button id="cancel-node-adding-button">Cancel</button>
@@ -45,18 +49,19 @@
 		</div>
 		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			  <a class="navbar-brand" href="#">Navbar</a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			  	<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			    <div class="navbar-nav">
-			      <a class="nav-item nav-link active" href="#" id="yo" etwas="yo">Home <span class="sr-only">(current)</span></a>
-			      <a class="nav-item nav-link" href="#">Features</a>
-			      <a class="nav-item nav-link" href="#">Pricing</a>
-			      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-			    </div>
-			  </div>
+			  <div class="input-group" id="json-buttons">
+					<span class="input-group-btn">
+						<button class="btn btn-secondary btn-sm" type="button" id="download-json">Downolad Json</button>
+						<button class="btn btn-secondary btn-sm" type="button" id="import-json">Upload</button>
+					</span>
+					<div class="custom-file mw-50">
+						<input type="file" class="custom-file-input input-sm" id="selectFile">
+						<label class="custom-file-label" for="selectFile" placeholder="Choose file"></label>
+					</div>
+					<span class="input-group-btn">
+							<button class="btn btn-secondary btn-sm" type="button" id="hide-json">Hide</button>
+					</span>
+				</div>
 		</nav>
 		<main>
 			<div class="containerNet">
@@ -65,14 +70,12 @@
 			<div id="Jtext-areas">
 				<textarea class="json-text-area" id="json-text-area"></textarea>
 				<textarea class="json-text-area" id="json-text-area-edges"></textarea>
+				<div id="text-buttons">
+					<button id="generate-json">Generate Json</button>
+					<button id="generate-net-from-json">Generate Net</button>
+				</div>
 			</div>
-			<div id="json-buttons">
-				<button id="generate-json">Generate Json</button>
-				<button id="generate-net-from-json">Generate Net</button>
-				<button id="download-json">Downolad Json</button>
-				<input type="file" id="selectFile" value="Import" />
-				<button id="import-json">Upload Json</button>
-			</div>
+
 		</main>
 
 	</div>
@@ -82,7 +85,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="./js/vis.min.js" id="vis-script"></script>
-
 <script type="text/javascript" src="./js/network.js"></script>
 
 </body>
