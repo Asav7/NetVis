@@ -17,53 +17,79 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div id="new-node-modal">
-			<div id="new-node-popup">
-				<h3>Add node</h3>
-					<div class="new-node-popup-line">
-						<label>Label: </label>
-						<!-- TODO: Force this input  -->
-						<input type="text" id="input-label">
+		<div class="modal" id="new-node-modal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content" id="new-node-popup">
+					<div class="modal-header bg-secondary">
+						<h3 class="modal-title text-light">Add node</h3>
 					</div>
-					<div class="new-node-popup-line">
-						<label>Description: </label>
-						<input type="text" id="input-title">
-					</div>
-					<div class="new-node-popup-line">
-						<label>Group: </label>
-						<input type="text" id="input-group">
-					</div>
-					<div class="new-node-popup-line">
-						<label>Shape: </label>
-						<input type="text" id="input-nodeShape">
-					</div>
-					<div class="new-node-popup-line">
-						<label>Importance: </label>
-						<input type="text" id="input-nodeSize">
-					</div>
-					<div class="button-line new-node-popup-line">
-						<button id="save-node-adding-button">Save</button>
-						<button id="cancel-node-adding-button">Cancel</button>
-					</div>
+						<div class="modal-body">
+							<div class="bg-light">
+								<div class="form-group row">
+									<label for="input-label" class="col-sm-3 col-form-label">Label: </label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="input-label">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="input-title" class="col-sm-3 col-form-label">Description: </label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="input-title">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="input-group" class="col-sm-3 col-form-label">Group: </label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="input-group">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="input-nodeShape" class="col-sm-3 col-form-label">Shape: </label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="input-nodeShape">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="input-nodeSize" class="col-sm-3 col-form-label">Importance: </label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="input-nodeSize">
+									</div>
+								</div>
+								<!-- <div class="new-node-popup-line">
+									<label>Group: </label>
+									<input type="text" id="input-group">
+								</div>
+								<div class="new-node-popup-line">
+									<label>Shape: </label>
+									<input type="text" id="input-nodeShape">
+								</div>
+								<div class="new-node-popup-line">
+									<label>Importance: </label>
+									<input type="text" id="input-nodeSize"> -->
+								<!-- </div> -->
+							</div>
+						</div>
+						<div class="button-line new-node-popup-line modal-footer bg-secondary">
+							<button class="btn btn-light" id="save-node-adding-button">Save</button>
+							<button class="btn btn-light" id="cancel-node-adding-button">Cancel</button>
+						</div>
+				</div>
 			</div>
 		</div>
-		
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			  <div class="input-group" id="json-buttons">
-					<span class="input-group-btn">
-						<button class="btn btn-secondary btn-sm" type="button" id="download-json">Downolad Json</button>
-						<button class="btn btn-secondary btn-sm" type="button" id="import-json">Upload</button>
-					</span>
-					<div class="custom-file mw-50">
-						<input type="file" class="custom-file-input input-sm" id="selectFile">
-						<label class="custom-file-label" for="selectFile" placeholder="Choose file"></label>
-					</div>
-					<span class="input-group-btn">
-							<button class="btn btn-secondary btn-sm" type="button" id="hide-json">Hide</button>
-					</span>
-				</div>
-		</nav>
 		<main>
+			<div class="bg-dark">
+				<div class="form-group mb-0" id="json-buttons">
+					<button class="btn btn-secondary btn-sm" type="button" id="download-json">Downolad Json</button>
+					<button class="btn btn-secondary btn-sm btn-choose" type="button" id="import-json">Upload</button>
+					<label class="btn btn-secondary btn-file btn-sm mb-0">
+						Browse <input type="file" style="display: none;" id="selectFile">
+					</label>
+					<button class="btn btn-secondary btn-sm btn-choose" type="button" id="editmode">Edit</button>
+					<button class="btn btn-secondary btn-sm float-right" type="button" id="hide">Hide</button>
+				</div>
+			</div>
+			<button class="btn btn-secondary btn-sm" type="button" id="show">Show</button>
+
 			<div class="containerNet">
 				<div id="mynetwork"></div>
 			</div>

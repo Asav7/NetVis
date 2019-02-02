@@ -1,6 +1,6 @@
 "use strict";
 
-(function() {
+// (function() {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////    Configure Network    ///////////////////////////////////////////////
@@ -27,16 +27,6 @@
 
     // Define variables necessary to create network
     let container = document.getElementById('mynetwork');
-    let options_bck = {
-        manipulation: {
-            enabled: true,
-            editNode: editNode,
-            addNode: addNode,
-        },
-        physics: {
-            enabled: false
-        }
-    };
 
     let options = {
         manipulation: {
@@ -76,7 +66,7 @@
             },
         edges: {
             width: 0.4,
-            inheritColor: "from",
+            // inheritColor: "from",
 //			style: "dash",
 			selectionWidth: 5,
 			smooth: {
@@ -105,7 +95,7 @@
                     color: {
                             border: "rgba(255,255,255,1)",
                             background: "rgba(0,0,0,0)",
-//                            highlight: {border: "#2ae957", background: "#a2e5b2"},
+                           highlight: {border: "#2ae957", background: "#a2e5b2"},
                             hover: {border: "#2ae957", background: "#2ae957"},
                     },
                     font: {
@@ -331,4 +321,31 @@
         }
         fr.readAsText(files.item(0));
     };
-})();
+
+    let editModeButton = document.getElementById("editmode");
+    editModeButton.onclick = function() {
+        if (network.manipulation.editMode) {
+            network.disableEditMode();
+            this.classList.remove("btn-success");
+            this.classList.add("btn-secondary");
+        } else {
+            network.enableEditMode();
+            this.classList.remove("btn-secondary");
+            this.classList.add("btn-success");
+        }
+    }
+
+    let topMenu = document.getElementById("json-buttons");
+    let hideButton = document.getElementById("hide");
+    let showButton = document.getElementById("show");
+    hideButton.onclick = function() {
+        topMenu.style.display = "none";
+        showButton.style.display = "block";
+    }
+    showButton.onclick = function() {
+        console.log("go")
+        topMenu.style.display = "block";
+        showButton.style.display = "none";
+    }
+
+// })();

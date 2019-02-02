@@ -1,11 +1,14 @@
 body {
 	height: 100vh;
 	background-color: black;
+	overflow: hidden;
 }
 
 main {
 	margin: 0px;
   padding: 0px;
+  height: 100%;
+  
 }
 
 #Jtext-areas {
@@ -27,9 +30,17 @@ main {
 	min-width: 200px;
 	height: 100vh;
 	padding: 0px;
-  width: 100%;
-  margin: 0px;
-  background-color: black;
+	width: 100%;
+	margin: 0px;
+	background-color: black;
+}
+
+#show {
+	display: none;
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	z-index: 10;
 }
 
 #mynetwork {
@@ -64,13 +75,9 @@ main {
 }
 
 /*TODO: Make this show next to clicked place on canvas*/
-#new-node-popup {
-	/*position: absolute;*/
-	/*align-self: center;*/
-	/*width: 25%;*/
+/* #new-node-popup {
 	margin: auto;
 	margin-top: 15%;
-	background-color: rgb(249, 196, 169);
 	z-index: 1;
 	padding: 10px 30px;
 	box-shadow: 3px 3px 7px #333;
@@ -78,14 +85,10 @@ main {
 	opacity: 0.97;
 	display: inline-block;
 	text-align: left;
-}
-
-#new-node-popup input {
-	
-}
-
+	background-color: #888;
+} */
+/* 
 .new-node-popup-line input{
-	/*flex: 1;*/
 	float:right;
 	display: inline-block;
 	margin-left: 25px;
@@ -98,15 +101,14 @@ main {
 
 
 .new-node-popup-line {
-	/*display: flex*/
 	padding: 1px;
 	margin: .5rem 0;
-}
+} */
 
-.button-line {
+/* .button-line {
 	padding-top: 10px;
-}
-
+} */
+/* 
 .new-node-popup-line label {
 	margin: 0;
-}
+} */

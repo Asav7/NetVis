@@ -622,8 +622,9 @@ div.vis-network div.vis-manipulation div.vis-button.vis-add {
 
 div.vis-network div.vis-manipulation div.vis-button.vis-edit,
 div.vis-network div.vis-edit-mode div.vis-button.vis-edit {
-  /* background-image: url("img/network/editIcon.png"); */
+  background-image: url("img/network/editIcon.png");
   box-sizing: content-box;
+  /* display: none; */
 }
 
 div.vis-network div.vis-edit-mode div.vis-button.vis-edit.vis-edit-mode {
@@ -631,6 +632,7 @@ div.vis-network div.vis-edit-mode div.vis-button.vis-edit.vis-edit-mode {
   background-color: rgba(0,0,0,0.8);
   border: 1px solid #ccc;
   color: #ccc;
+  display: none;
 }
 
 div.vis-network div.vis-manipulation div.vis-button.vis-connect {
