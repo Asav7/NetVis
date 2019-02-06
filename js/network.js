@@ -65,10 +65,10 @@
 			borderWidth: 2,
             },
         edges: {
-            width: 0.4,
+            width: 4,
             // inheritColor: "from",
 //			style: "dash",
-			selectionWidth: 5,
+			selectionWidth: 6,
 			smooth: {
 			    enabled: true,
 			    roundness: 0.5,
@@ -76,83 +76,103 @@
 			    }
 
 			},
-        groups: {
-                13: {
-                    color: {
-                            border: "#2ae957",
-                            background: "#a2e5b2",
-                            highlight: {border: "#2ae957", background: "#a2e5b2"},
-                            hover: {border: "#2ae957", background: "#2ae957"},
-                    },
-                    font: {
-                        color: "rgba(255,255,255,1)",
-                        size: 12,
-                        face: "Tahoma",
-                    },
-                },
+        // groups: {
+        //         13: {
+        //             color: {
+        //                     border: "#2ae957",
+        //                     background: "#a2e5b2",
+        //                     highlight: {border: "#2ae957", background: "#a2e5b2"},
+        //                     hover: {border: "#2ae957", background: "#2ae957"},
+        //             },
+        //             font: {
+        //                 color: "rgba(255,255,255,1)",
+        //                 size: 12,
+        //                 face: "Tahoma",
+        //             },
+        //         },
+        //         44: {
+        //             borderWidth: 0.0,
+        //             color: {
+        //                     border: "rgba(255,255,255,1)",
+        //                     background: "rgba(0,0,0,0)",
+        //                    highlight: {border: "#2ae957", background: "#a2e5b2"},
+        //                     hover: {border: "#2ae957", background: "#2ae957"},
+        //             },
+        //             font: {
+        //                 color: "rgba(255,255,255,1)",
+        //                 size: 12,
+        //                 face: "Tahoma",
+        //             },
+        //         },
+        //         dog: {
+        //             color: {
+        //                     border: "yellow",
+        //                     background: "#a2e5b2",
+        //                     highlight: {border: "#2ae957", background: "#a2e5b2"},
+        //                     hover: {border: "#2ae957", background: "#2ae957"},
+        //             },
+        //             font: {
+        //                 color: "rgba(0,0,0,0.9)",
+        //                 size: 12,
+        //                 face: "Tahoma",
+        //             },
+        //         },
+        //         3: {color: {
+        //                     border: "yellow",
+        //                     background: "#a2e5b2",
+        //                     highlight: {border: "#2ae957", background: "#a2e5b2"},
+        //                     hover: {border: "#2ae957", background: "#2ae957"},
+        //                 },
+        //             font: {
+        //                 color: "#999999",
+        //                 size: 20,
+        //                 face: "Tahoma",
+        //         },
+        //         }, // blue
+        //         1: {color: {
+        //                 border: "#FFA500",
+        //                 background: "#FFFF00",
+        //                 highlight: { border: "#FFA500", background: "#FFFFA3" },
+        //                 hover: { border: "#FFA500", background: "#FFFFA3" }, // 1: yellow
+        //                 },
+        //             font: {
+        //                 color: "#999999",
+        //                 size: 40,
+        //                 face: "Tahoma",
+        //         },
+        //         }, // blue
+        //         2: {color: {
+        //                 border: "#FA0A10",
+        //                 background: "#FB7E81",
+        //                 highlight: { border: "#FA0A10", background: "#FFAFB1" },
+        //                 hover: { border: "#FA0A10", background: "#FFAFB1" }
+        //                 },
+        //             font: {
+        //                 color: "#999999",
+        //                 size: 20,
+        //                 face: "Tahoma",
+        //         },
+        //         }, // blue
+        //     },
+            groups: {
                 44: {
-                    borderWidth: 0.0,
+                    borderWidth: 0.7,
                     color: {
-                            border: "rgba(255,255,255,1)",
-                            background: "rgba(0,0,0,0)",
-                           highlight: {border: "#2ae957", background: "#a2e5b2"},
-                            hover: {border: "#2ae957", background: "#2ae957"},
+                        background: "rgba(0, 0, 0, 0)",
+                        border: "#ccc"
                     },
-                    font: {
-                        color: "rgba(255,255,255,1)",
-                        size: 12,
-                        face: "Tahoma",
-                    },
+                    font: {color: '#FFF'},
+
                 },
-                dog: {
-                    color: {
-                            border: "yellow",
-                            background: "#a2e5b2",
-                            highlight: {border: "#2ae957", background: "#a2e5b2"},
-                            hover: {border: "#2ae957", background: "#2ae957"},
-                    },
-                    font: {
-                        color: "rgba(0,0,0,0.9)",
-                        size: 12,
-                        face: "Tahoma",
-                    },
+                6: {
+                    color: "#4cf",
                 },
-                3: {color: {
-                            border: "yellow",
-                            background: "#a2e5b2",
-                            highlight: {border: "#2ae957", background: "#a2e5b2"},
-                            hover: {border: "#2ae957", background: "#2ae957"},
-                        },
-                    font: {
-                        color: "#999999",
-                        size: 20,
-                        face: "Tahoma",
+                5: {
+                    color: "#d35",
                 },
-                }, // blue
-                1: {color: {
-                        border: "#FFA500",
-                        background: "#FFFF00",
-                        highlight: { border: "#FFA500", background: "#FFFFA3" },
-                        hover: { border: "#FFA500", background: "#FFFFA3" }, // 1: yellow
-                        },
-                    font: {
-                        color: "#999999",
-                        size: 40,
-                        face: "Tahoma",
+                7: {
+                    color: "#2b6",
                 },
-                }, // blue
-                2: {color: {
-                        border: "#FA0A10",
-                        background: "#FB7E81",
-                        highlight: { border: "#FA0A10", background: "#FFAFB1" },
-                        hover: { border: "#FA0A10", background: "#FFAFB1" }
-                        },
-                    font: {
-                        color: "#999999",
-                        size: 20,
-                        face: "Tahoma",
-                },
-                }, // blue
             },
         interaction: {
             hover: true,

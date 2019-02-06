@@ -312,7 +312,9 @@ div.vis-tooltip {
   position: absolute;
   visibility: hidden;
   padding: 5px;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
+  max-width: 30%;
+  overflow: wrap;
 
   font-family: verdana;
   font-size:14px;
@@ -328,6 +330,15 @@ div.vis-tooltip {
   pointer-events: none;
 
   z-index: 5;
+
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+    /*word-break: break-all;*/
+    white-space: normal;
 }
 
 
